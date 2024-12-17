@@ -12,23 +12,23 @@ dart create -t web-simple todo-dart
 cd todo-dart
 dart create -t web-simple . --force
 
-# Compile the Dart Code to JavaScript in /docs folder
+# eventually Compile the Dart Code to JavaScript in /docs folder
 dart compile js -o docs/main.dart.js web/main.dart
 ```
 
-Create `build.yaml` file to control what files goes to output folder
+## Deploy the App (Use GitHub Actions for Deployment)
 
-## Access the app
+We choose to host this app to Github Pages therefore we have created a github action where we build and push the result to a dedicated branch `gh-pages`.
+This branch is configured in github project settings (-> Pages) to serve the app build files (html, js, css).
 
-`https://<your-username>.github.io/todo-dart/`
+Check the `.github/workflows/deploy.yaml` file and see:
 
-## Use GitHub Actions for Deployment
+* prepare the build environment (install dart and webdev)
+* build from /web to /build output folder (webdev build --output web:build) 
+* use `actions-gh-pages` action to push the `./build` folder to the default branch `gh-pages`
+* go to Settings -> Pages and configure 'Deploy from branch' gh-pages and folder /(root) then save
+* access the url: https://<your-username>.github.io/todo-dart/ 
 
-
-
-
-
-Uses [`package:web`](https://pub.dev/packages/web) to interop with JS and the DOM.
 
 ## Running and building
 

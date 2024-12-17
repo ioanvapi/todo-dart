@@ -33,11 +33,11 @@ jobs:
       - name: Build Dart Web App
         run: |
           dart pub get
-          webdev build --output web:docs
+          webdev build --output web:build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          publish_dir: ./build
           full_commit_message: Deploy web app to GitHub Pages
