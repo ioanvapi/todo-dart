@@ -16,6 +16,8 @@ dart create -t web-simple . --force
 dart compile js -o docs/main.dart.js web/main.dart
 ```
 
+Create `build.yaml` file to control what files goes to output folder
+
 ## Access the app
 
 `https://<your-username>.github.io/todo-dart/`
