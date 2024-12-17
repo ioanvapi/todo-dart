@@ -24,6 +24,12 @@ jobs:
         with:
           sdk: stable
 
+      - name: Install webdev
+        run: dart pub global activate webdev   
+        
+      - name: Add pub global to PATH
+        run: echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH  
+
       - name: Build Dart Web App
         run: |
           dart pub get
